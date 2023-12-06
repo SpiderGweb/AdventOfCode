@@ -1,5 +1,6 @@
 public class CalibrationCodeCalculator {
     public int extractCalibrationCode(String input) {
-        return Integer.parseInt(input);
+        String onlyDigits = input.replaceAll("[\\D]", "");
+        return Integer.parseInt(onlyDigits);
     }
 }

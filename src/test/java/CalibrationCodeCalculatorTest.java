@@ -19,4 +19,14 @@ public class CalibrationCodeCalculatorTest {
 
         assertEquals(calibrationCodeCalculator.extractCalibrationCode(input), 15);
     }
+
+
+    @Test
+    public void calculateCalibrationCodeReturnsIntegerOfConcatenatedFirstAndLastDigitOfSingleLineWithTwoDigitsThatHaveTextBetweenThem() {
+        CalibrationCodeCalculator calibrationCodeCalculator = new CalibrationCodeCalculator();
+
+        String input = "1text5";
+
+        assertEquals(calibrationCodeCalculator.extractCalibrationCode(input), 15);
+    }
 }
