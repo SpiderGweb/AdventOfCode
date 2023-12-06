@@ -109,7 +109,7 @@ public class CalibrationCodeCalculatorTest {
     }
 
     @Test
-    public void calculateCalibrationCodeFromFile() throws Exception{
+    public void calculateCalibrationCodeFromFile() throws Exception {
         Scanner sc = new Scanner(new File("src/test/resources/calibration_codes.txt"));
         List<String> lines = new ArrayList<String>();
         while (sc.hasNextLine()) {

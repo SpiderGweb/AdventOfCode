@@ -1,7 +1,3 @@
-import java.util.Map;
-
-import static java.util.Map.entry;
-
 public class CalibrationCodeCalculator {
     public int sumCalibrationCodes(String[] input) {
         int sum = 0;
