@@ -12,6 +12,15 @@ public class CalibrationCodeCalculatorTest {
     }
 
     @Test
+    public void sumCalibrationCodesReturnsCodeWhenInputHasLength1() {
+        CalibrationCodeCalculator calibrationCodeCalculator = new CalibrationCodeCalculator();
+
+        String[] input = {"pqr3stu8vwx"};
+
+        assertEquals(calibrationCodeCalculator.sumCalibrationCodes(input), 38);
+    }
+
+    @Test
     public void calculateCalibrationCodeReturnsIntegerOfConcatenatedFirstAndLastDigitOfStringWithTwoDigits() {
         CalibrationCodeCalculator calibrationCodeCalculator = new CalibrationCodeCalculator();
 
