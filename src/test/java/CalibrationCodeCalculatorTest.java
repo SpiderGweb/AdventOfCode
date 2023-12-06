@@ -1,6 +1,11 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalibrationCodeCalculatorTest {
@@ -65,4 +70,16 @@ public class CalibrationCodeCalculatorTest {
         assertEquals(calibrationCodeCalculator.extractCalibrationCode(input), 77);
     }
 
+    @Test
+    public void calculateCalibrationCodeFromFile() throws Exception{
+        Scanner sc = new Scanner(new File("src/test/resources/calibration_codes.txt"));
+        List<String> lines = new ArrayList<String>();
+        while (sc.hasNextLine()) {
+            lines.add(sc.nextLine());
+        }
+
+        String[] input = lines.toArray(new String[0]);
+
+        assertEquals(calibrationCodeCalculator.sumCalibrationCodes(input), 53386);
+    }
 }
