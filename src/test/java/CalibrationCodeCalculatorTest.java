@@ -22,11 +22,12 @@ public class CalibrationCodeCalculatorTest {
 
 
     @Test
-    public void calculateCalibrationCodeReturnsIntegerOfConcatenatedFirstAndLastDigitOfSingleLineWithTwoDigitsThatHaveTextBetweenThem() {
+    public void calculateCalibrationCodeReturnsIntegerOfConcatenatedFirstAndLastDigitOfSingleLineWithTwoDigitsThatHaveTextAroundThem() {
         CalibrationCodeCalculator calibrationCodeCalculator = new CalibrationCodeCalculator();
 
-        String input = "1text5";
+        String input = "some1text5here";
 
         assertEquals(calibrationCodeCalculator.extractCalibrationCode(input), 15);
     }
+
 }
