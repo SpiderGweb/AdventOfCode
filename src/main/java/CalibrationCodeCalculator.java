@@ -1,6 +1,10 @@
 public class CalibrationCodeCalculator {
     public int sumCalibrationCodes(String[] input){
-       return extractCalibrationCode(input[0]);
+        int sum = 0;
+        for (String line: input){
+            sum += extractCalibrationCode(line);
+        }
+       return sum;
     }
 
     public int extractCalibrationCode(String input) {
