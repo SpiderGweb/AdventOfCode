@@ -71,6 +71,44 @@ public class CalibrationCodeCalculatorTest {
     }
 
     @Test
+    public void calculateCalibrationCodeReturnsFirstAndLastDigitEvenWhenSpelled() {
+        CalibrationCodeCalculator calibrationCodeCalculator = new CalibrationCodeCalculator();
+
+        String input = "two1nine";
+
+
+        assertEquals(calibrationCodeCalculator.extractCalibrationCode(input), 29);
+    }
+
+    @Test
+    public void calculateCalibrationCodeReturnsFirstAndLastDigitForInputThatIsOnlyWords() {
+        CalibrationCodeCalculator calibrationCodeCalculator = new CalibrationCodeCalculator();
+
+        String input = "eightwothree";
+
+
+        assertEquals(calibrationCodeCalculator.extractCalibrationCode(input), 83);
+    }
+
+    @Test
+    public void calculateCalibrationCodeReturnsFirstAndLastDigitForInputThatIsCommbo() {
+        CalibrationCodeCalculator calibrationCodeCalculator = new CalibrationCodeCalculator();
+
+        String input = "abcone2threexyz";
+        String input1 = "xtwone3four";
+        String input2 = "4nineeightseven2";
+        String input3 = "zoneight234";
+        String input4 = "7pqrstsixteen";
+
+
+        assertEquals(calibrationCodeCalculator.extractCalibrationCode(input), 13);
+        assertEquals(calibrationCodeCalculator.extractCalibrationCode(input1), 24);
+        assertEquals(calibrationCodeCalculator.extractCalibrationCode(input2), 42);
+        assertEquals(calibrationCodeCalculator.extractCalibrationCode(input3), 14);
+        assertEquals(calibrationCodeCalculator.extractCalibrationCode(input4), 76);
+    }
+
+    @Test
     public void calculateCalibrationCodeFromFile() throws Exception{
         Scanner sc = new Scanner(new File("src/test/resources/calibration_codes.txt"));
         List<String> lines = new ArrayList<String>();
@@ -79,7 +117,8 @@ public class CalibrationCodeCalculatorTest {
         }
 
         String[] input = lines.toArray(new String[0]);
+        System.out.print(calibrationCodeCalculator.sumCalibrationCodes(input));
 
-        assertEquals(calibrationCodeCalculator.sumCalibrationCodes(input), 53386);
+        assertEquals(calibrationCodeCalculator.sumCalibrationCodes(input), 53312);
     }
 }
