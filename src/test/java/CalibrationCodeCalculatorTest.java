@@ -12,7 +12,7 @@ public class CalibrationCodeCalculatorTest {
     }
 
     @Test
-    public void calculateCalibrationCodeReturnsIntegerOfConcatenatedFirstAndLastDigitOfSingleLineWithTwoDigits() {
+    public void calculateCalibrationCodeReturnsIntegerOfConcatenatedFirstAndLastDigitOfStringWithTwoDigits() {
         CalibrationCodeCalculator calibrationCodeCalculator = new CalibrationCodeCalculator();
 
         String input = "15";
@@ -20,14 +20,31 @@ public class CalibrationCodeCalculatorTest {
         assertEquals(calibrationCodeCalculator.extractCalibrationCode(input), 15);
     }
 
-
     @Test
-    public void calculateCalibrationCodeReturnsIntegerOfConcatenatedFirstAndLastDigitOfSingleLineWithTwoDigitsThatHaveTextAroundThem() {
+    public void calculateCalibrationCodeReturnsIntegerOfConcatenatedFirstAndLastDigitOfStringWithTwoDigitsThatHaveTextAroundThem() {
         CalibrationCodeCalculator calibrationCodeCalculator = new CalibrationCodeCalculator();
 
-        String input = "some1text5here";
+        String input = "some1text9here";
 
-        assertEquals(calibrationCodeCalculator.extractCalibrationCode(input), 15);
+        assertEquals(calibrationCodeCalculator.extractCalibrationCode(input), 19);
+    }
+
+    @Test
+    public void calculateCalibrationCodeReturnsIntegerOfConcatenatedFirstAndLastDigitOfStringWithManyDigits() {
+        CalibrationCodeCalculator calibrationCodeCalculator = new CalibrationCodeCalculator();
+
+        String input = "8some9text5here2";
+
+        assertEquals(calibrationCodeCalculator.extractCalibrationCode(input), 82);
+    }
+
+    @Test
+    public void calculateCalibrationCodeReturnsRepeatedDigitWhenInputHasOnlyOneDigit() {
+        CalibrationCodeCalculator calibrationCodeCalculator = new CalibrationCodeCalculator();
+
+        String input = "treb7uchet";
+
+        assertEquals(calibrationCodeCalculator.extractCalibrationCode(input), 77);
     }
 
 }
