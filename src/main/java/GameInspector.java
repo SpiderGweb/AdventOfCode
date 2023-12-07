@@ -18,7 +18,7 @@ public class GameInspector {
 
     private int getId(String input){
         Matcher matcher = Pattern
-                .compile("\\d")
+                .compile("\\d+")
                 .matcher(input);
 
         matcher.find();

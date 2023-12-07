@@ -29,4 +29,12 @@ public class GameInspectorTest {
         assertEquals(1, game.getId());
     }
 
+    @Test
+    public void parseGameSetsGameIdWhenItIsMultiDigit(){
+        String input = "Game 356: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green";
+        Game game = gameInspector.parseGame(input);
+
+        assertEquals(356, game.getId());
+    }
+
 }
