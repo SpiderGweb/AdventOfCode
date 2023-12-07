@@ -13,10 +13,10 @@ public class GameInspector {
         Game game = new Game();
         game.setId(getId(input));
 
-        return  game;
+        return game;
     }
 
-    private int getId(String input){
+    private int getId(String input) {
         Matcher matcher = Pattern
                 .compile("\\d+")
                 .matcher(input);
