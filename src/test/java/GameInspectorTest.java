@@ -2,14 +2,27 @@ import model.Round;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GameInspectorTest {
     GameInspector gameInspector;
+    Round control;
 
     @BeforeEach
     public void init() {
         gameInspector = new GameInspector();
+        control = new Round();
+        control.setBlue(14);
+        control.setRed(12);
+        control.setGreen(13);
+    }
+
+    @Test
+    public void sumIdsOfValidGamesReturnsIdOfValidGameWhenThereIsOneGameWithOneRound(){
+        String[] input = {"Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green"};
+
+        assertEquals(1, gameInspector.sumIdsOfValidGames(input, control));
     }
 
     @Test
