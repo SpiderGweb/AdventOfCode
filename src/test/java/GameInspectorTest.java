@@ -20,4 +20,26 @@ public class GameInspectorTest {
         assertTrue(gameInspector.isRoundValid(inputBag, control));
     }
 
+    @Test
+    public void isRoundValidIsTrueWhenRoundHasFewerRedCubesThanTheControl() {
+        Round inputBag = new Round();
+        Round control = new Round();
+
+        inputBag.setRed(1);
+        control.setRed(5);
+
+        assertTrue(gameInspector.isRoundValid(inputBag, control));
+    }
+
+    @Test
+    public void isRoundValidIsTrueWhenRoundHasSameRedCubesThanTheControl() {
+        Round inputBag = new Round();
+        Round control = new Round();
+
+        inputBag.setRed(5);
+        control.setRed(5);
+
+        assertTrue(gameInspector.isRoundValid(inputBag, control));
+    }
+
 }
