@@ -3,10 +3,9 @@ import model.Round;
 public class GameInspector {
     public boolean isRoundValid(Round exampleBag, Round control)
     {
-
-        return exampleBag.getBlue() == 0 &&
+        return exampleBag.getBlue() <= control.getBlue() &&
                 exampleBag.getRed() <= control.getRed() &&
-                exampleBag.getGreen() == 0;
+                exampleBag.getGreen() <= control.getGreen();
     }
 
 }
