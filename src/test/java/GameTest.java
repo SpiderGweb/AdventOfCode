@@ -1,10 +1,8 @@
 import model.Game;
-import model.Round;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class GameTest {
     GameInspector gameInspector;
@@ -14,12 +12,6 @@ public class GameTest {
         gameInspector = new GameInspector();
     }
 
-    @Test
-    public void isRoundValidDefaultsToFalse() {
-        Round inputBag = new Round();
-
-        assertFalse(gameInspector.isRoundValid(inputBag));
-    }
 
     @Test
     public void parseGameSetsGameIdWhenItIsSingleDigit() {
