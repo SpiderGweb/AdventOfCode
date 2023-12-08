@@ -19,10 +19,23 @@ public class GameInspectorTest {
     }
 
     @Test
-    public void sumIdsOfValidGamesReturnsIdOfValidGameWhenThereIsOneGameWithOneRound(){
+    public void sumIdsOfValidGamesReturnsIdOfValidGameWhenThereIsOneGameWithOneValidRound(){
         String[] input = {"Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green"};
 
         assertEquals(1, gameInspector.sumIdsOfValidGames(input, control));
+    }
+
+    @Test
+    public void sumIdsOfValidGamesReturnsIdOfValidGameWhenThereIsOneGameWithMultipleRoundsAllValid(){
+        String[] input = {"Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green"};
+
+        assertEquals(1, gameInspector.sumIdsOfValidGames(input, control));
+    }
+    @Test
+    public void sumIdsOfValidGamesReturnsIdOfValidGameWhenThereIsOneGameWithMultipleRoundsSomeNotValid(){
+        String[] input = {"Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 25 green"};
+
+        assertEquals(0, gameInspector.sumIdsOfValidGames(input, control));
     }
 
     @Test
