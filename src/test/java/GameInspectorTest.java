@@ -2,6 +2,11 @@ import model.Round;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -51,6 +56,19 @@ public class GameInspectorTest {
         assertEquals(8, gameInspector.sumIdsOfValidGames(input, control));
     }
 
+    @Test
+    public void calculateCalibrationCodeFromFile() throws Exception {
+        Scanner sc = new Scanner(new File("src/test/resources/cube_games.txt"));
+        List<String> lines = new ArrayList<String>();
+        while (sc.hasNextLine()) {
+            lines.add(sc.nextLine());
+        }
+
+        String[] input = lines.toArray(new String[0]);
+        System.out.print(gameInspector.sumIdsOfValidGames(input, control));
+
+        assertEquals(2369, gameInspector.sumIdsOfValidGames(input, control));
+    }
 
     @Test
     public void isRoundValidIsTrueWhenRoundHasNoCubes() {
