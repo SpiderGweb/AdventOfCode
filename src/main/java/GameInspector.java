@@ -1,6 +1,8 @@
 import model.Game;
 import model.Round;
 
+import java.util.List;
+
 public class GameInspector {
     public  int sumIdsOfValidGames(String[] games, Round control){
         int sum = 0;
@@ -26,6 +28,11 @@ public class GameInspector {
         return exampleBag.getBlue() <= control.getBlue() &&
                 exampleBag.getRed() <= control.getRed() &&
                 exampleBag.getGreen() <= control.getGreen();
+    }
+
+    public int getGamePower(List<Round> rounds)
+    {
+        return rounds.get(0).getBlue() * rounds.get(0).getRed() * rounds.get(0).getGreen();
     }
 
 }

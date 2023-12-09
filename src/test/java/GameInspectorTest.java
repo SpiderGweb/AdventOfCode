@@ -144,4 +144,14 @@ public class GameInspectorTest {
         assertTrue(gameInspector.isRoundValid(inputBag, control));
     }
 
+    @Test
+    public void getGamePowerMultipliesEachColorWhenThereIsOnlyOneRound(){
+        Round input = new Round();
+        input.setGreen(2);
+        input.setBlue(6);
+        input.setRed(4);
+
+        assertEquals(48, gameInspector.getGamePower(List.of(input)));
+    }
+
 }
