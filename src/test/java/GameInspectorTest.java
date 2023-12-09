@@ -1,3 +1,4 @@
+import model.Game;
 import model.Round;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -152,6 +153,14 @@ public class GameInspectorTest {
         input.setRed(4);
 
         assertEquals(48, gameInspector.getGamePower(List.of(input)));
+    }
+
+    @Test
+    public void getGamePowerMultipliesEachColorWhenThereAreMultiple0Rounds(){
+        String input = "Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green";
+        Game game = new Game(input);
+
+        assertEquals(48, gameInspector.getGamePower(game.getRounds()));
     }
 
 }

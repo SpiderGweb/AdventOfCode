@@ -32,7 +32,17 @@ public class GameInspector {
 
     public int getGamePower(List<Round> rounds)
     {
-        return rounds.get(0).getBlue() * rounds.get(0).getRed() * rounds.get(0).getGreen();
+        int maxBlue = 0;
+        int maxRed = 0;
+        int maxGreen = 0;
+
+        for(Round round : rounds){
+            if(round.getBlue() > maxBlue) maxBlue = round.getBlue();
+            if(round.getRed() > maxRed) maxRed = round.getRed();
+            if(round.getGreen() > maxGreen) maxGreen = round.getGreen();
+        }
+
+        return maxBlue * maxRed * maxGreen;
     }
 
 }
