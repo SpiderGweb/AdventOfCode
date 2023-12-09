@@ -23,6 +23,17 @@ public class GameInspector {
         return sum;
     }
 
+    public  int sumPowerOfGames(String[] games){
+        int sum = 0;
+
+        for(String gameInput : games){
+            Game game = new Game(gameInput);
+            sum+=getGamePower(game.getRounds());
+        }
+
+        return sum;
+    }
+
     public boolean isRoundValid(Round exampleBag, Round control)
     {
         return exampleBag.getBlue() <= control.getBlue() &&
