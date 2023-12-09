@@ -2,18 +2,24 @@ import model.Game;
 import model.Round;
 
 public class GameInspector {
-    public  int sumIdsOfValidGames(String[] rounds, Round control){
-        Game game = new Game(rounds[0]);
+    public  int sumIdsOfValidGames(String[] games, Round control){
+        int sum = 0;
+        for(String gameInput : games){
+            Game game = new Game(gameInput);
 
-        int sum;
-        boolean gameValid = true;
-        for(Round round : game.getRounds()){
-            if(!isRoundValid(round, control)){
-                gameValid = false;
+            boolean gameValid = true;
+
+            for(Round round : game.getRounds()){
+                if(!isRoundValid(round, control)){
+                    gameValid = false;
+                    break;
+                }
             }
+            if(gameValid ) sum+=game.getId();
         }
 
-        if(gameValid ) return game.getId(); else return 0; }
+        return sum;
+    }
 
     public boolean isRoundValid(Round exampleBag, Round control)
     {
