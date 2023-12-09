@@ -4,8 +4,10 @@ import model.Round;
 import java.util.List;
 
 public class GameInspector {
+
     public  int sumIdsOfValidGames(String[] games, Round control){
         int sum = 0;
+
         for(String gameInput : games){
             Game game = new Game(gameInput);
 
@@ -17,6 +19,7 @@ public class GameInspector {
                     break;
                 }
             }
+
             if(gameValid ) sum+=game.getId();
         }
 
@@ -55,5 +58,4 @@ public class GameInspector {
 
         return maxBlue * maxRed * maxGreen;
     }
-
 }

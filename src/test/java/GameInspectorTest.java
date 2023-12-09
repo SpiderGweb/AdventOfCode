@@ -59,7 +59,7 @@ public class GameInspectorTest {
     }
 
     @Test
-    public void calculateCalibrationCodeFromFile() throws Exception {
+    public void sumIdsFromTestFile() throws Exception {
         Scanner sc = new Scanner(new File("src/test/resources/cube_games.txt"));
         List<String> lines = new ArrayList<String>();
         while (sc.hasNextLine()) {
@@ -165,7 +165,7 @@ public class GameInspectorTest {
     }
 
     @Test
-    public void sumPowerOfGamesWhenThereAreMultipleGames(){
+    public void sumPowerOfGamesWhenThereAreMultipleGames() {
         String[] input = {
                 "Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green",
                 "Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue",
@@ -175,5 +175,19 @@ public class GameInspectorTest {
         };
 
         assertEquals(2286, gameInspector.sumPowerOfGames(input));
+    }
+
+    @Test
+    public void sumPowersFromTestFile() throws Exception {
+        Scanner sc = new Scanner(new File("src/test/resources/cube_games.txt"));
+        List<String> lines = new ArrayList<String>();
+        while (sc.hasNextLine()) {
+            lines.add(sc.nextLine());
+        }
+
+        String[] input = lines.toArray(new String[0]);
+        System.out.print(gameInspector.sumPowerOfGames(input));
+
+        assertEquals(66363, gameInspector.sumPowerOfGames(input));
     }
 }
